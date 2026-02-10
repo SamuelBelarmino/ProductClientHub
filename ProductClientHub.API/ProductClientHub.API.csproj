@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProductClientHub.Communication\ProductClientHub.Communication.csproj" />
+    <ProjectReference Include="..\ProductClientHub.Domain\ProductClientHub.Domain.csproj" />
     <ProjectReference Include="..\ProductClientHub.Exceptions\ProductClientHub.Exceptions.csproj" />
+    <ProjectReference Include="..\ProductClientHub.Infrastructure\ProductClientHub.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
