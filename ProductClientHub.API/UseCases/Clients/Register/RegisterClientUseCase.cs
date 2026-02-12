@@ -1,12 +1,39 @@
 ﻿using ProductClientHub.Communication.Requests;
 using ProductClientHub.Communication.Responses;
+using ProductClientHub.Domain.Entities;
 using ProductClientHub.Exceptions.ExceptionBase;
+using ProductClientHub.Infrastructure;
 
 namespace ProductClientHub.API.UseCases.Clients.Register
 {
     public class RegisterClientUseCase
     {
         public ResponseClientJson Execute(RequestClientJson request)
+        {
+            Validate(request);
+            
+            var dbContext = new ProductClientHubDbContext();
+
+            var entity = new Client
+            {
+                Id = Guid.NewGuid(), //pode ser gerado na classe de domínio ou aqui, dependendo da arquitetura
+                Name = request.Name,
+                Email = request.Email,
+                Idade = request.Idade
+            };
+
+            dbContext.Clients.Add(entity);
+
+            dbContext.SaveChanges();
+
+            return new ResponseClientJson
+            {
+                Id = entity.Id,
+                Name = entity.Name
+            };
+        }
+
+        private void Validate(RequestClientJson request)
         {
             var validator = new RegisterClientValidator();
 
@@ -18,8 +45,6 @@ namespace ProductClientHub.API.UseCases.Clients.Register
 
                 throw new ErrorOnValidationException(errors);
             }
-
-            return new ResponseClientJson();
         }
     }
 }
