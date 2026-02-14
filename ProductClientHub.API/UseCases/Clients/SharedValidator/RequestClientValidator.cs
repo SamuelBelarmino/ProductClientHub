@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using ProductClientHub.Communication.Requests;
 
-namespace ProductClientHub.API.UseCases.Clients.Register
+namespace ProductClientHub.API.UseCases.Clients.SharedValidator
 {
-    public class RegisterClientValidator : AbstractValidator<RequestClientJson>
+    public class RequestClientValidator : AbstractValidator<RequestClientJson>
     {
         //'ctor' cria o construtor automaticamente
-        public RegisterClientValidator()
+        public RequestClientValidator()
         {
             RuleFor(x => x.Name)
                 .NotEmpty()

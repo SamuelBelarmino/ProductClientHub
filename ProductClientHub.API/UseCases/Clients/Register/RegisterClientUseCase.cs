@@ -1,4 +1,5 @@
-﻿using ProductClientHub.Communication.Requests;
+﻿using ProductClientHub.API.UseCases.Clients.SharedValidator;
+using ProductClientHub.Communication.Requests;
 using ProductClientHub.Communication.Responses;
 using ProductClientHub.Domain.Entities;
 using ProductClientHub.Exceptions.ExceptionBase;
@@ -35,7 +36,7 @@ namespace ProductClientHub.API.UseCases.Clients.Register
 
         private void Validate(RequestClientJson request)
         {
-            var validator = new RegisterClientValidator();
+            var validator = new RequestClientValidator();
 
             var validationResult = validator.Validate(request);
 
