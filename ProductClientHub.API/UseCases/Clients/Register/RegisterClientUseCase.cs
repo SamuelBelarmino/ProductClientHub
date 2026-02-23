@@ -17,10 +17,9 @@ namespace ProductClientHub.API.UseCases.Clients.Register
 
             var entity = new Client
             {
-                Id = Guid.NewGuid(), //pode ser gerado na classe de domínio ou aqui, dependendo da arquitetura
                 Name = request.Name,
                 Email = request.Email,
-                Idade = request.Idade
+                Age = request.Age
             };
 
             dbContext.Clients.Add(entity);

@@ -1,9 +1,9 @@
-﻿namespace ProductClientHub.Domain.Entities
-{
-    public class Product
-    {
-        public Guid Id { get; set; }
+﻿using ProductClientHub.Domain.Bases;
 
+namespace ProductClientHub.Domain.Entities
+{
+    public class Product : EntityBase
+    {
         public string Name { get; set; } = string.Empty;
 
         public string Brand { get; set; } = string.Empty;

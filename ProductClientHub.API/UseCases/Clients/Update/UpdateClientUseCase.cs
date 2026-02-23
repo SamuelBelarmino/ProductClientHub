@@ -20,7 +20,7 @@ namespace ProductClientHub.API.UseCases.Clients.Update
 
             entity.Name = request.Name;
             entity.Email = request.Email;
-            entity.Idade = request.Idade;
+            entity.Age = request.Age;
 
             dbContext.Clients.Update(entity);
             dbContext.SaveChanges();
