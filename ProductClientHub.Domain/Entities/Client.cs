@@ -9,5 +9,7 @@ namespace ProductClientHub.Domain.Entities
         public string Email { get; set; } = string.Empty;   
 
         public int Age { get; set; }
+
+       public List<Product> Products { get; set; } = new List<Product>();
     }
 }
